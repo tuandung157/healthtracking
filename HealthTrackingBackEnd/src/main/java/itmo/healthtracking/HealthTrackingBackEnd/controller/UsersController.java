@@ -30,6 +30,7 @@ public class UsersController {
     public Users login(@RequestBody Users user){
         String username = user.getUsersName();
         String password = user.getPassword();
+        System.out.println(username);
         Optional<Users> optionalUsers = usersRepository.findByUsersName(username);
         if(optionalUsers.isEmpty()) return null;
         Users userChecker = optionalUsers.get();
