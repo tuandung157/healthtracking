@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class TelemetryController {
@@ -21,10 +23,16 @@ public class TelemetryController {
 
     @GetMapping("/telemetry/load")
     public Telemetry loadCurrentDevice(@RequestParam String clientName){
-        //find user used device by client name
+//find user used device by client name
 //        Device device = deviceRepository.findByClientName(clientName);
 //        List<Telemetry> listTelemetryUser = telemetryRepository.findByDevice_ClientName(clientName);
         Telemetry telemetry = telemetryRepository.findTopByDevice_ClientNameOrderByUpdatedAtDesc(clientName);
+        return telemetry;
+    }
+
+    @GetMapping("/telemetry/client")
+    public List<Telemetry> loadAllTelemetry(@RequestParam String clientName){
+        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientName(clientName);
         return telemetry;
     }
 }
