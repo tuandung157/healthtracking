@@ -6,16 +6,20 @@ import javax.persistence.*;
 @Table(name = "telemetry")
 public class Telemetry extends AuditModel{
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = "telemetry_seq", sequenceName = "telemetry_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "telemetry_seq")
+    @Column(name = "telemetry_id")
     private Long telemetryId;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "device_id")
     private Device device;
 
     private Long temperature;
 
     private Long oxygen;
 
+    @Column(name = "heartrate")
     private Long heartRate;
 
     public Telemetry(){

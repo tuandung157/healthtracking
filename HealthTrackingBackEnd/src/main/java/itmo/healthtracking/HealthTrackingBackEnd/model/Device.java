@@ -1,17 +1,18 @@
 package itmo.healthtracking.HealthTrackingBackEnd.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "device")
 public class Device extends AuditModel {
 
-    @Id @GeneratedValue
+    @Id
+    @SequenceGenerator(name = "device_seq", sequenceName = "device_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_seq")
+    @Column(name = "device_id")
     private Long deviceId;
 
+    @Column(name = "client_name")
     private String clientName;
     private String ip;
 
@@ -24,10 +25,6 @@ public class Device extends AuditModel {
     public Device() {
 
     }
-
-//    public Device() {
-//
-//    }
 
     public Long getDeviceId() {
         return deviceId;
