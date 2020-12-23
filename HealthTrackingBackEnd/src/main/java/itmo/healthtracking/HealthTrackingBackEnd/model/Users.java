@@ -37,4 +37,5 @@ public class Users extends AuditModel{
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

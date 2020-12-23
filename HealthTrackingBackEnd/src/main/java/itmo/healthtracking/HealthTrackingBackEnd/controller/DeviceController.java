@@ -19,13 +19,15 @@ public class DeviceController {
     @Autowired
     private DeviceRepository deviceRepository;
 
-    @GetMapping("device/{id}")
+    @GetMapping("devices/{id}")
     public Optional<Device> getDevice(@PathVariable Long id){
         return deviceRepository.findById(id);
     }
 
-    @GetMapping("device/all")
+    @GetMapping("devices")
     public List<Device> getDevice(){
+        System.out.println("find all devices");
+        System.out.println(deviceRepository.findAll().size());
         return deviceRepository.findAll();
     }
 

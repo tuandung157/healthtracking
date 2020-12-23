@@ -22,6 +22,12 @@ public class UsersController {
 
     @PostMapping("/users/add")
     public Users addUsers(@RequestBody Users user){
+        System.out.println(user.toString());
+        user.setCreatedAt(new Date());
+        user.setUpdatedAt(new Date());
+//        System.out.println(user.getPassword());
+//        System.out.println(user.getCreatedAt());
+
         usersRepository.save(user);
         return user;
     }
