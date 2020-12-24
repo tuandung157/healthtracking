@@ -24,7 +24,6 @@ public class UsersController {
     public Users addUsers(@RequestBody Users user){
         System.out.println(user.toString());
         user.setCreatedAt(new Date());
-        user.setUpdatedAt(new Date());
 //        System.out.println(user.getPassword());
 //        System.out.println(user.getCreatedAt());
 

@@ -27,7 +27,7 @@ public class DeviceController {
     @GetMapping("devices")
     public List<Device> getDevice(){
         System.out.println("find all devices");
-        System.out.println(deviceRepository.findAll().size());
+//        System.out.println(deviceRepository.findAll().size());
         return deviceRepository.findAll();
     }
 

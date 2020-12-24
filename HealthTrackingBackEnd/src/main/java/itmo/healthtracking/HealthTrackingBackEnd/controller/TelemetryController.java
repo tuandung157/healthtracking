@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -27,12 +30,36 @@ public class TelemetryController {
 //        Device device = deviceRepository.findByClientName(clientName);
 //        List<Telemetry> listTelemetryUser = telemetryRepository.findByDevice_ClientName(clientName);
         Telemetry telemetry = telemetryRepository.findTopByDevice_ClientNameOrderByUpdatedAtDesc(clientName);
+
+        System.out.println(" get client name from telemetry "+telemetry.getDevice().getClientName());
         return telemetry;
     }
 
     @GetMapping("/telemetry/client")
     public List<Telemetry> loadAllTelemetry(@RequestParam String clientName){
         List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientName(clientName);
+        return telemetry;
+    }
+
+    @GetMapping("/telemetry/client/week")
+    public List<Telemetry> loadTelemetryForWeek(@RequestParam String clientName){
+
+        LocalDateTime ldt = LocalDateTime.now().minusDays(7);
+        Date dateNow = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+
+        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateNow);
+        return telemetry;
+    }
+    @GetMapping("/telemetry/client/today")
+    public List<Telemetry> loadTelemetryForDay(@RequestParam String clientName){
+//        Date dateAfter = new Date();
+//        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateAfter);
+
+        LocalDateTime ldt = LocalDateTime.now().minusDays(1);
+        Date dateNow = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+
+        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateNow);
+
         return telemetry;
     }
 }
