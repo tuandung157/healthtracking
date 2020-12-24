@@ -1,12 +1,11 @@
 package itmo.healthtracking.HealthTrackingBackEnd.controller;
 
 
-import itmo.healthtracking.HealthTrackingBackEnd.model.Users;
+import itmo.healthtracking.HealthTrackingBackEnd.model.User;
 import itmo.healthtracking.HealthTrackingBackEnd.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.*;
 
 @RestController
@@ -16,29 +15,28 @@ public class UsersController {
     private UsersRepository usersRepository;
 
     @GetMapping("users/{userId}")
-    public Optional<Users> getUser(@PathVariable Long userId){
+    public Optional<User> getUser(@PathVariable Long userId){
         return usersRepository.findById(userId);
     }
 
     @PostMapping("/users/add")
-    public Users addUsers(@RequestBody Users user){
-        System.out.println(user.toString());
+    public User addUsers(@RequestBody User user){
+//        System.out.println(user.toString());
         user.setCreatedAt(new Date());
-//        System.out.println(user.getPassword());
-//        System.out.println(user.getCreatedAt());
+        user.setUpdatedAt(new Date());
 
         usersRepository.save(user);
         return user;
     }
 
     @PostMapping("users/login")
-    public Users login(@RequestBody Users user){
-        String username = user.getUsersName();
+    public User login(@RequestBody User user){
+        String username = user.getUsername();
         String password = user.getPassword();
         System.out.println(username);
-        Optional<Users> optionalUsers = usersRepository.findByUsersName(username);
+        Optional<User> optionalUsers = usersRepository.findByUsername(username);
         if(optionalUsers.isEmpty()) return null;
-        Users userChecker = optionalUsers.get();
+        User userChecker = optionalUsers.get();
         return userChecker.getPassword().equals(password) ? user : null;
     }
 }
