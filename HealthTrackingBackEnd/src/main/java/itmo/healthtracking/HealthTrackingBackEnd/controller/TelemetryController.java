@@ -30,7 +30,7 @@ public class TelemetryController {
 //        Device device = deviceRepository.findByClientName(clientName);
 //        List<Telemetry> listTelemetryUser = telemetryRepository.findByDevice_ClientName(clientName);
         Telemetry telemetry = telemetryRepository.findTopByDevice_ClientNameOrderByUpdatedAtDesc(clientName);
-
+        System.out.println(clientName);
         System.out.println(" get client name from telemetry "+telemetry.getDevice().getClientName());
         return telemetry;
     }
@@ -41,24 +41,26 @@ public class TelemetryController {
         return telemetry;
     }
 
-    @GetMapping("/telemetry/client/week")
+    @GetMapping("/telemetry/week/client")
     public List<Telemetry> loadTelemetryForWeek(@RequestParam String clientName){
 
         LocalDateTime ldt = LocalDateTime.now().minusDays(7);
         Date dateNow = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 
-        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateNow);
+        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfterOrderByCreatedAtDesc(clientName, dateNow);
         return telemetry;
     }
-    @GetMapping("/telemetry/client/today")
+
+    @GetMapping("/telemetry/today/client")
     public List<Telemetry> loadTelemetryForDay(@RequestParam String clientName){
 //        Date dateAfter = new Date();
 //        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateAfter);
 
         LocalDateTime ldt = LocalDateTime.now().minusDays(1);
         Date dateNow = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+        System.out.println("check run "+dateNow);
+        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfterOrderByCreatedAtDesc(clientName, dateNow);
 
-        List<Telemetry> telemetry = telemetryRepository.findByDevice_ClientNameAndCreatedAtAfter(clientName, dateNow);
 
         return telemetry;
     }
