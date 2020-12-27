@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.*;
 
-public interface UsersRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
     //List<Users> findByUsername(String username);
     Optional<User> findByUsername(String username);
     Set<User> findUserByUsernameStartingWith(String username);

@@ -2,7 +2,7 @@ package itmo.healthtracking.HealthTrackingBackEnd.controller;
 
 
 import itmo.healthtracking.HealthTrackingBackEnd.model.User;
-import itmo.healthtracking.HealthTrackingBackEnd.repository.UsersRepository;
+import itmo.healthtracking.HealthTrackingBackEnd.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +10,13 @@ import java.util.*;
 
 @RestController
 @CrossOrigin
-public class UsersController {
+public class UserController {
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
 
     @GetMapping("users/{userId}")
     public Optional<User> getUser(@PathVariable Long userId){
-        return usersRepository.findById(userId);
+        return userRepository.findById(userId);
     }
 
     @PostMapping("/users/add")
@@ -25,7 +25,7 @@ public class UsersController {
         user.setCreatedAt(new Date());
         user.setUpdatedAt(new Date());
 
-        usersRepository.save(user);
+        userRepository.save(user);
         return user;
     }
 
@@ -34,7 +34,7 @@ public class UsersController {
         String username = user.getUsername();
         String password = user.getPassword();
         System.out.println(username);
-        Optional<User> optionalUsers = usersRepository.findByUsername(username);
+        Optional<User> optionalUsers = userRepository.findByUsername(username);
         if(optionalUsers.isEmpty()) return null;
         User userChecker = optionalUsers.get();
         return userChecker.getPassword().equals(password) ? user : null;

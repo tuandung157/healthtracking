@@ -49,22 +49,14 @@ public class MqttConfig {
                         t = mapper.readValue(m.getPayload().toString(), Telemetry.class);
                         Device d = dr.findByClientName(t.getDevice().getClientName());
                         if (d != null){
-                            t.setDevice(d);
+                            t.getDevice().setDeviceId(d.getDeviceId());
                         }
-                        else {
-                            t.getDevice().setCreatedAt(new Date());
-                        }
-                        t.getDevice().setUpdatedAt(new Date());
                         dr.save(t.getDevice());
-                        t.setCreatedAt(new Date());
-                        t.setUpdatedAt(new Date());
                         tr.save(t);
                     } catch (JsonProcessingException e){
                         System.out.println("Couldn't get telemetry value out of message payload");
                         e.printStackTrace();
                     }
-                    // insert data to database here
-                    System.out.println(m.getPayload());
                 })
                 .get();
     }

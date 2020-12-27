@@ -63,7 +63,7 @@ create sequence telemetry_seq
 
 create table user_account(
 	user_id bigint primary key,
-	usersname text not null,
+	username text not null,
 	password text not null,
 	created_at timestamp default current_timestamp,
 	updated_at timestamp default current_timestamp 
@@ -76,13 +76,13 @@ create sequence user_seq
 
 if we want to remove all the tables and sequences we can do the following:
 ```
-drop table if exists user;
+drop table if exists user_account;
 drop table if exists telemetry;
 drop table if exists device;
 
-drop sequence id exists user_seq
-drop sequence id exists telemetry_seq;
-drop sequence id exists device_seq;
+drop sequence if exists user_seq;
+drop sequence if exists telemetry_seq;
+drop sequence if exists device_seq;
 ```
 
 #####MQTT broker setup:
