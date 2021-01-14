@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_devices">
+
+    <fragment
+        android:id="@+id/nav_now"
+        android:name="itmo.frontend.app.healthtracking.android.graphicModule.now.NowFragment"
+        android:label="@string/menu_now"
+        tools:layout="@layout/fragment_now" >
+        <action
+            android:id="@+id/action_nav_now_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_today"
+        android:name="itmo.frontend.app.healthtracking.android.graphicModule.today.TodayFragment"
+        android:label="@string/menu_today"
+        tools:layout="@layout/fragment_today" >
+        <action
+            android:id="@+id/action_nav_today_to_graphFragmnet"
+            app:destination="@id/graphFragmnet" />
+        <action
+            android:id="@+id/action_nav_today_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_week"
+        android:name="itmo.frontend.app.healthtracking.android.graphicModule.week.WeekFragment"
+        android:label="@string/menu_week"
+        tools:layout="@layout/fragment_week" >
+        <action
+            android:id="@+id/action_nav_week"
+            app:destination="@id/graphFragmnet" />
+        <action
+            android:id="@+id/action_nav_week_log"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_devices"
+        android:name="itmo.frontend.app.healthtracking.android.graphicModule.devices.DevicesFragment"
+        android:label="@string/menu_devices"
+        tools:layout="@layout/fragment_devices" >
+        <action
+            android:id="@+id/action_nav_devices_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="itmo.frontend.app.healthtracking.android.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/activity_login" >
+    </activity>
+
+    <activity
+        android:id="@+id/signUpActivity"
+        android:name="itmo.frontend.app.healthtracking.android.SignUpActivity"
+        android:label="SignUpActivity"
+        tools:layout="@layout/activity_signup" >
+    </activity>
+
+    <fragment
+        android:id="@+id/graphFragmnet"
+        android:name="itmo.frontend.app.healthtracking.android.graphicModule.graph.GraphFragment"
+        android:label="GraphFragment"
+        tools:layout="@layout/fragment_graph" >
+        <action
+            android:id="@+id/action_graphFragmnet_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+</navigation>

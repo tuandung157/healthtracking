@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".graphicModule.now.NowFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="413dp"
+        android:layout_height="0dp"
+        android:foreground="#00FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/temperature_text_now"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#38b9f9"
+            android:gravity="center"
+            android:text="Temperature"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/current_temp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="temp"
+            android:textColor="#38b9f9"
+            android:textColorHighlight="#000000"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/pressure_text_now"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#38b9f9"
+            android:gravity="center"
+            android:text="Oxygen"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/current_oxygen"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="oxygen"
+            android:textColor="#38b9f9"
+            android:textColorHighlight="#000000"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/moisture_text_now"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#38b9f9"
+            android:gravity="center"
+            android:text="Heart rate"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/current_heartrate"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="heart beat"
+            android:textColor="#38b9f9"
+            android:textColorHighlight="#000000"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/current_result"
+            android:layout_width="match_parent"
+            android:layout_height="288dp"
+            android:background="#037cb8"
+            android:gravity="center"
+            android:text="temp4"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#000000"
+            android:textSize="70sp" />
+
+    </LinearLayout>
+
+    <!--    <TextView-->
+<!--        android:id="@+id/pressure_now"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="@string/pressure"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/pressure_value_now"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginEnd="80dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:text="value"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/moisture_now"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:layout_marginRight="100dp"-->
+<!--        android:text="@string/moisture"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/luminosity_value_now"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/pressure_now" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/moisture_value_now"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="80dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:text="value"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/pressure_value_now" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/luminosity_now"-->
+<!--        android:layout_width="68dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="@string/luminosity"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/moisture_now" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/luminosity_value_now"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="80dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:text="value"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/moisture_value_now" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
