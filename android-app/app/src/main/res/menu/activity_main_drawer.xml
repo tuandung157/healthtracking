@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="check health for patient">
+            <menu>
+                <item
+                    android:id="@+id/nav_devices"
+                    android:title="@string/menu_devices" />
+                <item
+                    android:id="@+id/nav_now"
+                    android:title="@string/menu_now" />
+                <item
+                    android:id="@+id/nav_today"
+                    android:title="@string/menu_today" />
+                <item
+                    android:id="@+id/nav_week"
+                android:title="@string/menu_week" />
+            </menu>
+        </item>
+        <item android:title="Account">
+            <menu>
+                <item
+                android:id="@+id/loginActivity"
+                android:title="@string/logout" />
+            </menu>
+        </item>
+
+    </group>
+</menu>
